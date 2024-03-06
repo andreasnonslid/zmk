@@ -820,17 +820,17 @@ int zmk_set_colorscheme(uint8_t layer) {
     case 2:
         // Green
         state.current_effect = UNDERGLOW_EFFECT_SOLID;
-        state.color = (struct zmk_led_hsb){.h = (120 / 360) * 65535, .s = 255, .b = 255};
+        state.color = (struct zmk_led_hsb){.h = (120 / 360), .s = 255, .b = 255};
         break;
     case 3:
         // Blue
         state.current_effect = UNDERGLOW_EFFECT_SOLID;
-        state.color = (struct zmk_led_hsb){.h = (240 / 360) * 65535, .s = 255, .b = 255};
+        state.color = (struct zmk_led_hsb){.h = (240 / 360), .s = 255, .b = 255};
         break;
     case 4:
         // Orange
         state.current_effect = UNDERGLOW_EFFECT_SOLID;
-        state.color = (struct zmk_led_hsb){.h = (25 / 360) * 65535, .s = 255, .b = 255};
+        state.color = (struct zmk_led_hsb){.h = (25 / 360), .s = 255, .b = 255};
         break;
     }
 
