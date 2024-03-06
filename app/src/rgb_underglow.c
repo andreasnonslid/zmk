@@ -828,16 +828,4 @@ void zmk_set_colorscheme(uint8_t layer) {
     state.current_effect = UNDERGLOW_EFFECT_SOLID;
 }
 
-// Red
-state.color = (struct zmk_led_hsb){.h = 0, .s = 255, .b = 255};
-
-// Green
-state.color = (struct zmk_led_hsb){.h = (120 / 360) * 65535, .s = 255, .b = 255};
-
-// Blue
-state.color = (struct zmk_led_hsb){.h = (240 / 360) * 65535, .s = 255, .b = 255};
-
-// Orange
-state.color = (struct zmk_led_hsb){.h = ((20 or 30) / 360) * 65535, .s = 255, .b = 255};
-
 SYS_INIT(zmk_rgb_underglow_init, APPLICATION, CONFIG_APPLICATION_INIT_PRIORITY);
