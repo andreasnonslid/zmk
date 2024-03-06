@@ -803,4 +803,34 @@ ZMK_SUBSCRIPTION(rgb_underglow, zmk_activity_state_changed);
 ZMK_SUBSCRIPTION(rgb_underglow, zmk_usb_conn_state_changed);
 #endif
 
+void zmk_set_colorscheme(uint8_t i) {
+    switch (i) {
+    case 0:
+        zmk_rgb_underglow_effect_swirl();
+        return;
+        break;
+    case 1:
+        for (int i = 0; i < STRIP_NUM_PIXELS; i++) {
+            pixels[i] = (struct led_rgb){r : 255, g : 0, b : 0};
+        }
+        break;
+    case 2:
+        for (int i = 0; i < STRIP_NUM_PIXELS; i++) {
+            pixels[i] = (struct led_rgb){r : 0, g : 255, b : 0};
+        }
+        break;
+    case 3:
+        for (int i = 0; i < STRIP_NUM_PIXELS; i++) {
+            pixels[i] = (struct led_rgb){r : 0, g : 0, b : 255};
+        }
+        break;
+    case 4:
+        for (int i = 0; i < STRIP_NUM_PIXELS; i++) {
+            pixels[i] = (struct led_rgb){r : 255, g : 66, b : 0};
+        }
+        break;
+    }
+    zmk_rgb_underglow_effect_solid();
+}
+
 SYS_INIT(zmk_rgb_underglow_init, APPLICATION, CONFIG_APPLICATION_INIT_PRIORITY);

@@ -142,6 +142,8 @@ int zmk_keymap_layer_to(uint8_t layer) {
 
     zmk_keymap_layer_activate(layer);
 
+    zmk_set_colorscheme(layer);
+
     return 0;
 }
 
