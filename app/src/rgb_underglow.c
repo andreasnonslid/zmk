@@ -807,6 +807,7 @@ void zmk_set_colorscheme(uint8_t layer) {
     switch (layer) {
     case 0:
         zmk_rgb_underglow_effect_swirl();
+        state.current_effect = UNDERGLOW_EFFECT_SWIRL;
         return;
     case 1:
         for (int i = 0; i < STRIP_NUM_PIXELS; i++) {
@@ -830,6 +831,7 @@ void zmk_set_colorscheme(uint8_t layer) {
         break;
     }
     zmk_rgb_underglow_effect_solid();
+    state.current_effect = UNDERGLOW_EFFECT_SOLID;
 }
 
 SYS_INIT(zmk_rgb_underglow_init, APPLICATION, CONFIG_APPLICATION_INIT_PRIORITY);
