@@ -822,7 +822,7 @@ void zmk_set_colorscheme(uint8_t layer) {
         break;
     case 4:
         // Orange
-        state.color = (struct zmk_led_hsb){.h = ((20 or 30) / 360) * 65535, .s = 255, .b = 255};
+        state.color = (struct zmk_led_hsb){.h = (25 / 360) * 65535, .s = 255, .b = 255};
         break;
     }
     state.current_effect = UNDERGLOW_EFFECT_SOLID;
