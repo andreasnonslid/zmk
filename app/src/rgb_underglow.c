@@ -814,8 +814,9 @@ int zmk_set_colorscheme(uint8_t layer) {
         break;
     case 1:
         // Red
-        state.current_effect = UNDERGLOW_EFFECT_SOLID;
-        state.color = (struct zmk_led_hsb){.h = 0, .s = 255, .b = 255};
+        // state.current_effect = UNDERGLOW_EFFECT_SOLID;
+        // state.color = (struct zmk_led_hsb){.h = 0, .s = 255, .b = 255};
+        state.current_effect = UNDERGLOW_EFFECT_SWIRL;
         break;
     case 2:
         // Green
