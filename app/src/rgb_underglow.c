@@ -826,6 +826,9 @@ void zmk_set_colorscheme(uint8_t layer) {
         break;
     }
     state.current_effect = UNDERGLOW_EFFECT_SOLID;
+
+    state.animation_step = 0;
+    return zmk_rgb_underglow_save_state();
 }
 
 SYS_INIT(zmk_rgb_underglow_init, APPLICATION, CONFIG_APPLICATION_INIT_PRIORITY);
