@@ -803,7 +803,7 @@ ZMK_SUBSCRIPTION(rgb_underglow, zmk_activity_state_changed);
 ZMK_SUBSCRIPTION(rgb_underglow, zmk_usb_conn_state_changed);
 #endif
 
-void zmk_set_colorscheme(uint8_t layer) {
+int zmk_set_colorscheme(uint8_t layer) {
     switch (layer) {
     case 0:
         state.current_effect = UNDERGLOW_EFFECT_SWIRL;
