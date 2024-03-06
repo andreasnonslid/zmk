@@ -804,30 +804,34 @@ ZMK_SUBSCRIPTION(rgb_underglow, zmk_usb_conn_state_changed);
 #endif
 
 int zmk_set_colorscheme(uint8_t layer) {
+    state.animation_step = 0;
+
     switch (layer) {
     case 0:
         state.current_effect = UNDERGLOW_EFFECT_SWIRL;
-        return;
+        break;
     case 1:
         // Red
+        state.current_effect = UNDERGLOW_EFFECT_SOLID;
         state.color = (struct zmk_led_hsb){.h = 0, .s = 255, .b = 255};
         break;
     case 2:
         // Green
+        state.current_effect = UNDERGLOW_EFFECT_SOLID;
         state.color = (struct zmk_led_hsb){.h = (120 / 360) * 65535, .s = 255, .b = 255};
         break;
     case 3:
         // Blue
+        state.current_effect = UNDERGLOW_EFFECT_SOLID;
         state.color = (struct zmk_led_hsb){.h = (240 / 360) * 65535, .s = 255, .b = 255};
         break;
     case 4:
         // Orange
+        state.current_effect = UNDERGLOW_EFFECT_SOLID;
         state.color = (struct zmk_led_hsb){.h = (25 / 360) * 65535, .s = 255, .b = 255};
         break;
     }
-    state.current_effect = UNDERGLOW_EFFECT_SOLID;
 
-    state.animation_step = 0;
     return zmk_rgb_underglow_save_state();
 }
 
