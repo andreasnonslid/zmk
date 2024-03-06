@@ -808,7 +808,6 @@ void zmk_set_colorscheme(uint8_t layer) {
     case 0:
         zmk_rgb_underglow_effect_swirl();
         return;
-        break;
     case 1:
         for (int i = 0; i < STRIP_NUM_PIXELS; i++) {
             pixels[i] = (struct led_rgb){r : 255, g : 0, b : 0};
