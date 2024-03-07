@@ -813,7 +813,7 @@ enum MY_COLORS {
     BLUE = 230,
     PURPLE = 260,
     PINK = 300,
-}
+};
 #define LAYER_HUE_MAP                                                                              \
     { GREEN, YELLOW, ORANGE, RED, PINK, PURPLE, BLUE, CYAN }
 
