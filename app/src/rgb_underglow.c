@@ -808,7 +808,7 @@ int zmk_set_colorscheme(uint8_t layer) {
 
     switch (layer) {
     case 0:
-        // state.current_effect = UNDERGLOW_EFFECT_SWIRL;
+        // Pink
         state.current_effect = UNDERGLOW_EFFECT_SOLID;
         state.color = (struct zmk_led_hsb){.h = 315, .s = 100, .b = 100};
         break;
@@ -831,6 +831,25 @@ int zmk_set_colorscheme(uint8_t layer) {
         // Orange
         state.current_effect = UNDERGLOW_EFFECT_SOLID;
         state.color = (struct zmk_led_hsb){.h = 45, .s = 100, .b = 100};
+        break;
+    case 5:
+        // Yellow
+        state.current_effect = UNDERGLOW_EFFECT_SOLID;
+        state.color = (struct zmk_led_hsb){.h = 60, .s = 100, .b = 100};
+        break;
+    case 6:
+        // Cyan
+        state.current_effect = UNDERGLOW_EFFECT_SOLID;
+        state.color = (struct zmk_led_hsb){.h = 180, .s = 100, .b = 100};
+        break;
+    case 7:
+        // Magenta
+        state.current_effect = UNDERGLOW_EFFECT_SOLID;
+        state.color = (struct zmk_led_hsb){.h = 300, .s = 100, .b = 100};
+        break;
+    default:
+        state.current_effect = UNDERGLOW_EFFECT_SOLID;
+        state.color = (struct zmk_led_hsb){.h = 0, .s = 0, .b = 0};
         break;
     }
 
