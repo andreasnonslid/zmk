@@ -814,8 +814,7 @@ enum MY_COLORS {
     PURPLE = 260,
     PINK = 300,
 };
-#define LAYER_HUE_MAP                                                                              \
-    { GREEN, YELLOW, ORANGE, RED, PINK, PURPLE, BLUE, CYAN }
+const int LAYER_HUE_MAP[NUM_LAYERS] = {GREEN, YELLOW, ORANGE, RED, PINK, PURPLE, BLUE, CYAN};
 
 int zmk_set_colorscheme(uint8_t layer) {
     state.animation_step = 0;
