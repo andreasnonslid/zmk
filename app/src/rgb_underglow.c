@@ -804,13 +804,24 @@ ZMK_SUBSCRIPTION(rgb_underglow, zmk_usb_conn_state_changed);
 #endif
 
 #define NUM_LAYERS 8
-#define HUE_OFFSET 150
+enum MY_COLORS {
+    RED = 0,
+    ORANGE = 45,
+    YELLOW = 65,
+    GREEN = 130,
+    CYAN = 185,
+    BLUE = 230,
+    PURPLE = 260,
+    PINK = 300,
+}
+#define LAYER_HUE_MAP                                                                              \
+    { GREEN, YELLOW, ORANGE, RED, PINK, PURPLE, BLUE, CYAN }
+
 int zmk_set_colorscheme(uint8_t layer) {
     state.animation_step = 0;
 
     state.current_effect = UNDERGLOW_EFFECT_SOLID;
-    state.color = (struct zmk_led_hsb){
-        .h = (int)(((float)layer / NUM_LAYERS * 360.0 + HUE_OFFSET)) % 360, .s = 90, .b = 100};
+    state.color = (struct zmk_led_hsb){.h = LAYER_HUE_MAP[layer % NUM_LAYERS], .s = 90, .b = 100};
 
     return zmk_rgb_underglow_save_state();
 }
