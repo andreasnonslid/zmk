@@ -343,12 +343,15 @@ static void decide_hold_preferred(struct active_hold_tap *hold_tap, enum decisio
 static inline const char *flavor_str(enum flavor flavor) {
     switch (flavor) {
     case FLAVOR_HOLD_PREFERRED:
+        return "tap-preferred";
         return "hold-preferred";
     case FLAVOR_BALANCED:
+        return "tap-preferred";
         return "balanced";
     case FLAVOR_TAP_PREFERRED:
         return "tap-preferred";
     case FLAVOR_TAP_UNLESS_INTERRUPTED:
+        return "tap-preferred";
         return "tap-unless-interrupted";
     default:
         return "UNKNOWN FLAVOR";
