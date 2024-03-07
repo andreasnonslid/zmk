@@ -803,55 +803,14 @@ ZMK_SUBSCRIPTION(rgb_underglow, zmk_activity_state_changed);
 ZMK_SUBSCRIPTION(rgb_underglow, zmk_usb_conn_state_changed);
 #endif
 
+#define NUM_LAYERS 8
+#define HUE_OFFSET 45
 int zmk_set_colorscheme(uint8_t layer) {
     state.animation_step = 0;
 
-    switch (layer) {
-    case 0:
-        // Pink
-        state.current_effect = UNDERGLOW_EFFECT_SOLID;
-        state.color = (struct zmk_led_hsb){.h = 315, .s = 100, .b = 100};
-        break;
-    case 1:
-        // Red
-        state.current_effect = UNDERGLOW_EFFECT_SOLID;
-        state.color = (struct zmk_led_hsb){.h = 0, .s = 100, .b = 100};
-        break;
-    case 2:
-        // Green
-        state.current_effect = UNDERGLOW_EFFECT_SOLID;
-        state.color = (struct zmk_led_hsb){.h = 120, .s = 100, .b = 100};
-        break;
-    case 3:
-        // Blue
-        state.current_effect = UNDERGLOW_EFFECT_SOLID;
-        state.color = (struct zmk_led_hsb){.h = 240, .s = 100, .b = 100};
-        break;
-    case 4:
-        // Orange
-        state.current_effect = UNDERGLOW_EFFECT_SOLID;
-        state.color = (struct zmk_led_hsb){.h = 45, .s = 100, .b = 100};
-        break;
-    case 5:
-        // Yellow
-        state.current_effect = UNDERGLOW_EFFECT_SOLID;
-        state.color = (struct zmk_led_hsb){.h = 60, .s = 100, .b = 100};
-        break;
-    case 6:
-        // Cyan
-        state.current_effect = UNDERGLOW_EFFECT_SOLID;
-        state.color = (struct zmk_led_hsb){.h = 180, .s = 100, .b = 100};
-        break;
-    case 7:
-        // Magenta
-        state.current_effect = UNDERGLOW_EFFECT_SOLID;
-        state.color = (struct zmk_led_hsb){.h = 300, .s = 100, .b = 100};
-        break;
-    default:
-        state.current_effect = UNDERGLOW_EFFECT_SOLID;
-        state.color = (struct zmk_led_hsb){.h = 0, .s = 0, .b = 0};
-        break;
-    }
+    state.current_effect = UNDERGLOW_EFFECT_SOLID;
+    state.color = (struct zmk_led_hsb){
+        .h = (int)(((float)layer / NUM_LAYERS * 360.0 + HUE_OFFSET)) % 360, .s = 70, .b = 100};
 
     return zmk_rgb_underglow_save_state();
 }
