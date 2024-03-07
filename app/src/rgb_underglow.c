@@ -804,13 +804,13 @@ ZMK_SUBSCRIPTION(rgb_underglow, zmk_usb_conn_state_changed);
 #endif
 
 #define NUM_LAYERS 8
-#define HUE_OFFSET 45
+#define HUE_OFFSET 150
 int zmk_set_colorscheme(uint8_t layer) {
     state.animation_step = 0;
 
     state.current_effect = UNDERGLOW_EFFECT_SOLID;
     state.color = (struct zmk_led_hsb){
-        .h = (int)(((float)layer / NUM_LAYERS * 360.0 + HUE_OFFSET)) % 360, .s = 70, .b = 100};
+        .h = (int)(((float)layer / NUM_LAYERS * 360.0 + HUE_OFFSET)) % 360, .s = 90, .b = 100};
 
     return zmk_rgb_underglow_save_state();
 }
