@@ -32,7 +32,7 @@ static uint8_t _zmk_keymap_layer_default = 0;
 #define DT_DRV_COMPAT zmk_keymap
 
 #define TRANSFORMED_LAYER(node)                                                                    \
-    { LISTIFY(DT_PROP_LEN(node, bindings), ZMK_KEYMAP_EXTRACT_BINDING, (, ), node) }
+    {LISTIFY(DT_PROP_LEN(node, bindings), ZMK_KEYMAP_EXTRACT_BINDING, (, ), node)}
 
 #if ZMK_KEYMAP_HAS_SENSORS
 #define _TRANSFORM_SENSOR_ENTRY(idx, layer)                                                        \
@@ -123,7 +123,10 @@ uint8_t zmk_keymap_highest_layer_active(void) {
     return zmk_keymap_layer_default();
 }
 
-int zmk_keymap_layer_activate(uint8_t layer) { return set_layer_state(layer, true); };
+int zmk_keymap_layer_activate(uint8_t layer) {
+    zmk_set_colorscheme(layer);
+    return set_layer_state(layer, true);
+};
 
 int zmk_keymap_layer_deactivate(uint8_t layer) { return set_layer_state(layer, false); };
 
@@ -141,8 +144,6 @@ int zmk_keymap_layer_to(uint8_t layer) {
     }
 
     zmk_keymap_layer_activate(layer);
-
-    zmk_set_colorscheme(layer);
 
     return 0;
 }
