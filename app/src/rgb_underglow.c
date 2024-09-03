@@ -803,7 +803,7 @@ ZMK_SUBSCRIPTION(rgb_underglow, zmk_activity_state_changed);
 ZMK_SUBSCRIPTION(rgb_underglow, zmk_usb_conn_state_changed);
 #endif
 
-#define NUM_LAYERS 8
+#define NUM_LAYERS 10 // has to fit the setup in glove80 repo
 enum MY_COLORS {
     RED = 0,
     ORANGE = 45,
@@ -813,8 +813,11 @@ enum MY_COLORS {
     BLUE = 230,
     PURPLE = 260,
     PINK = 300,
+    MAGENTA = 320,
+    LIME = 90
 };
-const int LAYER_HUE_MAP[NUM_LAYERS] = {GREEN, YELLOW, ORANGE, RED, PINK, PURPLE, BLUE, CYAN};
+const int LAYER_HUE_MAP[NUM_LAYERS] = {GREEN,  YELLOW, ORANGE, RED,     PINK,
+                                       PURPLE, BLUE,   CYAN,   MAGENTA, LIME};
 
 int zmk_set_colorscheme(uint8_t layer) {
     state.animation_step = 0;
