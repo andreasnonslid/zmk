@@ -123,10 +123,7 @@ uint8_t zmk_keymap_highest_layer_active(void) {
     return zmk_keymap_layer_default();
 }
 
-int zmk_keymap_layer_activate(uint8_t layer) {
-    zmk_set_colorscheme(layer);
-    return set_layer_state(layer, true);
-};
+int zmk_keymap_layer_activate(uint8_t layer) { return set_layer_state(layer, true); };
 
 int zmk_keymap_layer_deactivate(uint8_t layer) { return set_layer_state(layer, false); };
 
@@ -144,6 +141,8 @@ int zmk_keymap_layer_to(uint8_t layer) {
     }
 
     zmk_keymap_layer_activate(layer);
+
+    zmk_set_colorscheme(layer);
 
     return 0;
 }
