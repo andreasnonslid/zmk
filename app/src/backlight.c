@@ -95,7 +95,6 @@ static int zmk_backlight_init(void) {
 #if IS_ENABLED(CONFIG_ZMK_BACKLIGHT_AUTO_OFF_USB)
     state.on = zmk_usb_is_powered();
 #endif
-    zmk_set_colorscheme(layer);
     return zmk_backlight_update();
 }
 
